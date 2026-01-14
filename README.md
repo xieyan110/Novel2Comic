@@ -46,6 +46,8 @@ LOG_LEVEL=INFO
 
 ### 2. 配置 Claude Code
 
+![alt text](33ad6fdc88e97ef00d1bade30ff08eaa.png)
+
 **API 服务选哪个都行**
 
 - [智谱 AI](https://open.bigmodel.cn/special_area) （推荐）
