@@ -109,3 +109,14 @@ A: 目前主要是日漫风格。
 
 **Q: 画面比例能改吗？**
 A: 可以啊，3:4、16:9、9:16 这些都支持。
+
+
+生成的漫画（这里有几页人物一致性有问题，可以直接让ai重新生成。这里我将就将就）
+
+![alt text](output/pages/page_001.jpg)
+![alt text](output/pages/page_002.jpg)
+![alt text](output/pages/page_003.jpg)
+![alt text](output/pages/page_004.jpg)
+![alt text](output/pages/page_005.jpg)
+![alt text](output/pages/page_006.jpg)
+
