@@ -26,7 +26,7 @@
 pip install -r requirements.txt
 ```
 
-创建**comic_service\.env**内容如下（key 直接通过.mcp.json 文件就行）：
+创建**comic_service\\.env**内容如下（key 直接通过.mcp.json 文件获取就行）：
 
 ```
 # Gemini API 配置
