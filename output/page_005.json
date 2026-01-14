@@ -1,0 +1,138 @@
+{
+  "page_number": 5,
+  "panels": [
+    {
+      "panel_number": 1,
+      "description": "冷月涵接受着全场崇拜、震惊的目光，一张清冷的俏脸从红到白，再从白到青，最后黑如锅底。她内心崩溃，完全不知道发生了什么。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "脸色变化",
+          "expression": "从红到白到青到黑",
+          "position": "画面特写"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "冷月涵内心",
+          "text": "自己哪会什么召唤法术啊！这明明是李玄的金刚丹搞出来的东西！李玄这个混蛋，为什么不告诉她？她不会御兽啊……",
+          "type": "内心独白"
+        }
+      ],
+      "background": "白玉擂台",
+      "camera_angle": "大特写"
+    },
+    {
+      "panel_number": 2,
+      "description": "大猩猩上下打量着冷月涵。猩猩的眼神充满了好奇和审视，让冷月涵更加紧张。她感觉自己可能打不过这个大猩猩。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "被猩猩盯着",
+          "expression": "紧张+担忧",
+          "position": "画面左侧"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "冷月涵内心",
+          "text": "这只大猩猩要是打自己怎么办？自己，能打过这个大猩猩吗？她被李玄坑惨了！",
+          "type": "内心独白"
+        }
+      ],
+      "background": "白玉擂台，大猩猩在画面右侧盯着冷月涵",
+      "camera_angle": "中景"
+    },
+    {
+      "panel_number": 3,
+      "description": "此时，丹鼎峰一位筑基真人，忽然一拍桌子，站起来惊呼出声。他的声音响彻全场。",
+      "characters": [],
+      "dialogues": [
+        {
+          "speaker": "丹鼎峰长老",
+          "text": "不对！这不是召唤法术，是那枚金刚丹，召唤出来的！",
+          "type": "惊呼"
+        }
+      ],
+      "background": "观礼台，长老拍案而起",
+      "camera_angle": "中景"
+    },
+    {
+      "panel_number": 4,
+      "description": "万众哗然！所有人都不敢相信，这只炼气期圆满的大猩猩，竟然是金刚丹召唤出来的？一枚丹药，召唤妖兽？这合理吗？！",
+      "characters": [],
+      "dialogues": [
+        {
+          "speaker": "众人",
+          "text": "这只炼气期圆满的大猩猩，竟然是金刚丹召唤出来的？一枚丹药，召唤妖兽？这合理吗？！",
+          "type": "哗然"
+        }
+      ],
+      "background": "观众席，众人议论纷纷",
+      "camera_angle": "群体镜头"
+    },
+    {
+      "panel_number": 5,
+      "description": "李玄也懵了！他看着擂台上的庞然大物，大脑一片空白。他完全不知道为什么会召唤出一只大猩猩。",
+      "characters": [
+        {
+          "name": "李玄",
+          "action": "看着擂台发愣",
+          "expression": "懵逼",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "李玄内心",
+          "text": "这是什么玩意儿？！自己炼制金刚丹，可是全程按照青云丹典炼制的，没出过任何差错啊。",
+          "type": "内心独白"
+        }
+      ],
+      "background": "丹鼎峰观战区域，背景是远处的擂台和大猩猩",
+      "camera_angle": "近景特写"
+    },
+    {
+      "panel_number": 6,
+      "description": "李玄忽然想起七天前炼丹时，丹药成型瞬间那道一闪而逝的诡异空间波纹。他猛然意识到问题所在。",
+      "characters": [
+        {
+          "name": "李玄",
+          "action": "猛然想起",
+          "expression": "恍然大悟",
+          "position": "画面特写"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "李玄内心",
+          "text": "难道说……那不是错觉？这丹药，从炼出来开始就有问题？！",
+          "type": "内心独白"
+        }
+      ],
+      "background": "白玉擂台（回忆画面）",
+      "camera_angle": "特写+回忆滤镜"
+    },
+    {
+      "panel_number": 7,
+      "description": "丹鼎峰的师兄们此时全都震惊了。他们围在李玄身边，脸上写满了不可思议和赞叹。",
+      "characters": [
+        {
+          "name": "李玄",
+          "action": "被师兄们围着",
+          "expression": "困惑",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "师兄们",
+          "text": "李玄师弟，莫非……这是什么新型丹药？竟能召唤出炼气期圆满的妖兽，当真是闻所未闻，见所未见！古往今来，丹药不计其数，从未有召唤类的丹药，李玄师弟，这是开召唤类丹药之先河啊！",
+          "type": "惊叹"
+        }
+      ],
+      "background": "丹鼎峰区域",
+      "camera_angle": "中景"
+    }
+  ]
+}

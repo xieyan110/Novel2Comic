@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "comic-service": {
+      "command": "python",
+      "args": ["comic_service/start_server.py"],
+      "env": {
+        "GEMINI_API_KEY": "sk-xxxx",
+        "GEMINI_API_BASE_URL": "https://api.uniapi.io"
+      }
+    }
+  }
+}

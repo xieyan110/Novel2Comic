@@ -1,0 +1,125 @@
+{
+  "page_number": 1,
+  "panels": [
+    {
+      "panel_number": 1,
+      "description": "宏大的开场场景。数十座巨大的白玉擂台悬浮于云海之上，剑光纵横，符箓纷飞，五行灵力激荡不休。青云宗宗门大比正在举行，场面壮观震撼。",
+      "characters": [],
+      "dialogues": [],
+      "background": "云海之上的悬浮擂台，天空中剑光和符箓纷飞",
+      "camera_angle": "俯瞰大远景",
+      "sound_effects": ["钟鸣九响", "声传百里"]
+    },
+    {
+      "panel_number": 2,
+      "description": "丹鼎峰观战区域。李玄站在人群中，饶有兴致地看着擂台上的比斗。他身穿白色道袍配青色腰带，面容清秀，表情淡定。",
+      "characters": [
+        {
+          "name": "李玄",
+          "action": "站在人群中观战",
+          "expression": "饶有兴致",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "旁白",
+          "text": "李玄并没有上场的资格，也乐得清闲。",
+          "type": "旁白"
+        }
+      ],
+      "background": "丹鼎峰观战区域，背景是擂台比斗的场景",
+      "camera_angle": "中景"
+    },
+    {
+      "panel_number": 3,
+      "description": "执事长老高声宣布下一场比赛。全场气氛瞬间被点燃，无数弟子翘首以盼。",
+      "characters": [],
+      "dialogues": [
+        {
+          "speaker": "执事长老",
+          "text": "下一场，主峰冷月涵，对阵，千刃峰赵乾！宗门大比第一轮，最后一场的比赛，即将开始！",
+          "type": "呐喊"
+        }
+      ],
+      "background": "高台上的执事长老，背景是沸腾的观众席",
+      "camera_angle": "仰视中景"
+    },
+    {
+      "panel_number": 4,
+      "description": "观众席沸腾。弟子们激动地议论着，有人举起应援牌，气氛热烈。",
+      "characters": [],
+      "dialogues": [
+        {
+          "speaker": "弟子A",
+          "text": "大师姐，终于轮到大师姐上场了！",
+          "type": "兴奋"
+        },
+        {
+          "speaker": "弟子B",
+          "text": "大师姐应援会为大师姐助阵！",
+          "type": "呐喊"
+        }
+      ],
+      "background": "沸腾的观众席，弟子们激动挥舞",
+      "camera_angle": "群体特写"
+    },
+    {
+      "panel_number": 5,
+      "description": "万众瞩目之下，冷月涵一袭白裙，飘然落于擂台之上。她清冷绝尘，肌肤胜雪，眉眼如画，气质高冷如冰山。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "从空中飘然落下",
+          "expression": "清冷绝尘",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [],
+      "background": "白玉擂台，背景是云海和观众席",
+      "camera_angle": "仰视特写"
+    },
+    {
+      "panel_number": 6,
+      "description": "赵乾，一个手持长刀的精悍青年，神色凝重地向冷月涵拱手行礼。",
+      "characters": [
+        {
+          "name": "赵乾",
+          "action": "拱手行礼",
+          "expression": "凝重",
+          "position": "画面左侧"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "赵乾",
+          "text": "赵乾见过大师姐，请大师姐不吝赐教！",
+          "type": "恭敬"
+        }
+      ],
+      "background": "白玉擂台",
+      "camera_angle": "中景"
+    },
+    {
+      "panel_number": 7,
+      "description": "冷月涵摆了摆手，清冷的声音传遍全场。赵乾一愣，观众们也是一头雾水。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "摆手",
+          "expression": "清冷",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "冷月涵",
+          "text": "你先别急。",
+          "type": "平静"
+        }
+      ],
+      "background": "白玉擂台，背景是困惑的观众",
+      "camera_angle": "中近景"
+    }
+  ]
+}

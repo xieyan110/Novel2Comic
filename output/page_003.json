@@ -1,0 +1,151 @@
+{
+  "page_number": 3,
+  "panels": [
+    {
+      "panel_number": 1,
+      "description": "冷月涵第三遍呐喊，气势达到顶峰。她双手握拳，用尽全力喊出广告词，声音响彻云霄。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "双手握拳呐喊",
+          "expression": "破音+全力以赴",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "冷月涵",
+          "text": "今年大比不收礼，收礼只收金刚丹！！",
+          "type": "呐喊"
+        }
+      ],
+      "background": "白玉擂台，声浪滚滚，云海都被震开",
+      "camera_angle": "仰视大特写"
+    },
+    {
+      "panel_number": 2,
+      "description": "三遍喊完，冷月涵面不改色（强装镇定），仿佛刚才那个破音呐喊的人不是她一样。她清冷的脸庞下是微微泛红的耳根。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "强装镇定",
+          "expression": "面无表情（强装）+耳根微红",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "旁白",
+          "text": "三遍喊完，冷月涵面不改色，仿佛刚才那个破音呐喊的人不是她一样。",
+          "type": "旁白"
+        }
+      ],
+      "background": "白玉擂台",
+      "camera_angle": "近景特写"
+    },
+    {
+      "panel_number": 3,
+      "description": "冷月涵举起手中的丹药，用足以让所有人听清的声音补充。她保持着清冷的表情，但眼神里透露出一丝无奈。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "举起丹药",
+          "expression": "清冷+眼神无奈",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "冷月涵",
+          "text": "金刚丹，丹鼎峰李玄炼制，大师姐都说好，谁用谁知道！想要同款丹药，请找李玄购买，欲购从速！",
+          "type": "平静（强装）"
+        }
+      ],
+      "background": "白玉擂台",
+      "camera_angle": "中景"
+    },
+    {
+      "panel_number": 4,
+      "description": "丹鼎峰区域，数百道目光齐刷刷地聚焦在李玄身上。李玄站在人群中，被所有人注视。",
+      "characters": [
+        {
+          "name": "李玄",
+          "action": "被众人注视",
+          "expression": "淡定",
+          "position": "画面焦点"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "弟子们",
+          "text": "这竟然是丹鼎峰新来的李玄师兄炼制的？他才入门三个月啊，这天赋也太可怕了！",
+          "type": "惊叹"
+        }
+      ],
+      "background": "丹鼎峰观战区域，所有人都转头看向李玄",
+      "camera_angle": "群体镜头，李玄在焦点"
+    },
+    {
+      "panel_number": 5,
+      "description": "李玄迎着众人震惊的目光，轻咳一声，收起了自己的震惊脸。微微一笑，深藏功与名。他淡定从容的样子让旁边的师兄们更加震惊。",
+      "characters": [
+        {
+          "name": "李玄",
+          "action": "轻咳，微笑",
+          "expression": "淡定+微笑",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "李玄内心",
+          "text": "龟龟，自己小瞧大师姐了啊！让大师姐给你当众打广告？还有这种操作？",
+          "type": "内心独白"
+        }
+      ],
+      "background": "丹鼎峰区域，旁边师兄们目瞪口呆",
+      "camera_angle": "近景特写"
+    },
+    {
+      "panel_number": 6,
+      "description": "擂台上，冷月涵干脆利落地将那枚上品金刚丹吞入腹中。赵乾脸色失望，原来只是为了打广告吗？",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "吞下丹药",
+          "expression": "清冷",
+          "position": "画面左侧"
+        },
+        {
+          "name": "赵乾",
+          "action": "看着冷月涵",
+          "expression": "失望",
+          "position": "画面右侧"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "赵乾内心",
+          "text": "原来只是为了打广告吗？但是……万一自己真有什么惊世天赋呢？",
+          "type": "内心独白"
+        }
+      ],
+      "background": "白玉擂台",
+      "camera_angle": "中景"
+    },
+    {
+      "panel_number": 7,
+      "description": "所有人屏息凝神，等待着大师姐身上绽放出金刚赐福的金光。全场鸦雀无声，数千双眼睛盯着冷月涵。",
+      "characters": [],
+      "dialogues": [
+        {
+          "speaker": "旁白",
+          "text": "所有人屏息凝神，等待着大师姐身上绽放出金刚赐福的光芒。",
+          "type": "旁白"
+        }
+      ],
+      "background": "观众席，所有人都屏息凝神",
+      "camera_angle": "全景"
+    }
+  ]
+}

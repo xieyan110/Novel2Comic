@@ -1,0 +1,132 @@
+{
+  "page_number": 2,
+  "panels": [
+    {
+      "panel_number": 1,
+      "description": "冷月涵从怀中取出一枚金灿灿的丹药。丹药出瓶的瞬间，一股浓郁到几乎化为实质的药香瞬间席卷了擂台。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "取出丹药展示",
+          "expression": "清冷",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "旁白",
+          "text": "丹药出瓶，药香瞬间席卷全场！",
+          "type": "旁白"
+        }
+      ],
+      "background": "白玉擂台，药香化为可见的金色光晕",
+      "camera_angle": "特写"
+    },
+    {
+      "panel_number": 2,
+      "description": "观礼台上，丹鼎峰长老眼睛一亮，惊呼出声。其他长老也都震惊地看着那枚丹药。",
+      "characters": [],
+      "dialogues": [
+        {
+          "speaker": "丹鼎峰长老",
+          "text": "这光泽，这丹韵，绝对是上品金刚丹！不……甚至隐隐有触摸到极品门槛的迹象！",
+          "type": "震惊"
+        }
+      ],
+      "background": "观礼台，长老们震惊的表情",
+      "camera_angle": "中景"
+    },
+    {
+      "panel_number": 3,
+      "description": "赵乾脸色瞬间黑了下来。他握着长刀的手微微颤抖，内心充满疑惑和不安。",
+      "characters": [
+        {
+          "name": "赵乾",
+          "action": "握着长刀，脸色发黑",
+          "expression": "疑惑+不安",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "赵乾内心",
+          "text": "为了打自己一个练气九重的菜逼，连上品金刚丹都拿出来了？莫非，自己有什么惊世天赋？",
+          "type": "内心独白"
+        }
+      ],
+      "background": "白玉擂台",
+      "camera_angle": "近景特写"
+    },
+    {
+      "panel_number": 4,
+      "description": "冷月涵深吸一口气，运起扩音术，清冷的脸庞上突然露出决绝的表情，准备呐喊。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "深吸气，运起扩音术",
+          "expression": "决绝",
+          "position": "画面特写"
+        }
+      ],
+      "dialogues": [],
+      "background": "白玉擂台",
+      "camera_angle": "大特写"
+    },
+    {
+      "panel_number": 5,
+      "description": "冷月涵用她那清脆又冰冷的声音，对着全场声嘶力竭地呐喊。声音如波浪般传遍四方，她的脸都喊红了。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "呐喊",
+          "expression": "破音+脸红",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "冷月涵",
+          "text": "今年大比不收礼，收礼只收金刚丹！！",
+          "type": "呐喊"
+        }
+      ],
+      "background": "白玉擂台，声音化为可见的波纹扩散",
+      "camera_angle": "仰视特写"
+    },
+    {
+      "panel_number": 6,
+      "description": "全场死一般的寂静。观众们目瞪口呆，长老们嘴角抽搐，所有人都被这个突如其来的广告惊呆了。",
+      "characters": [],
+      "dialogues": [
+        {
+          "speaker": "旁白",
+          "text": "全场死一般的寂静。",
+          "type": "旁白"
+        }
+      ],
+      "background": "观众席，所有人目瞪口呆的表情",
+      "camera_angle": "群体镜头"
+    },
+    {
+      "panel_number": 7,
+      "description": "冷月涵继续呐喊第二遍，气势更足。她的清冷形象完全崩塌，但依然坚持喊着广告词。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "继续呐喊",
+          "expression": "破音+坚持",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "冷月涵",
+          "text": "今年大比不收礼，收礼只收金刚丹！！",
+          "type": "呐喊"
+        }
+      ],
+      "background": "白玉擂台",
+      "camera_angle": "仰视中景"
+    }
+  ]
+}

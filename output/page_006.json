@@ -1,0 +1,97 @@
+{
+  "page_number": 6,
+  "panels": [
+    {
+      "panel_number": 1,
+      "description": "李玄摸着下巴，一脸困惑。师兄们的评价这么高？这对吗？他正准备说什么，忽然听到一声厉喝响彻全场。",
+      "characters": [
+        {
+          "name": "李玄",
+          "action": "摸下巴思考",
+          "expression": "困惑",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "李玄内心",
+          "text": "评价这么高？这对吗？",
+          "type": "内心独白"
+        }
+      ],
+      "background": "丹鼎峰区域",
+      "camera_angle": "近景特写"
+    },
+    {
+      "panel_number": 2,
+      "description": "一名须发皆白的老者站了起来，面容严冷，眼神犀利。他指着李玄的方向，声音充满愤怒和不满。",
+      "characters": [],
+      "dialogues": [
+        {
+          "speaker": "老者",
+          "text": "这算什么丹药！这是在亵渎丹道，我不承认！",
+          "type": "厉喝"
+        }
+      ],
+      "background": "观礼台，老者愤怒站起",
+      "camera_angle": "仰视中景"
+    },
+    {
+      "panel_number": 3,
+      "description": "全场寂静。所有人都看向那位老者，又看向李玄，气氛紧张到了极点。冷月涵站在擂台上，和大猩猩一起看着这一幕。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "看着观礼台",
+          "expression": "担忧",
+          "position": "画面左侧"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "旁白",
+          "text": "全场寂静。所有人都看向那位老者，又看向李玄，气氛紧张到了极点。",
+          "type": "旁白"
+        }
+      ],
+      "background": "全景，包括擂台上的冷月涵和大猩猩，以及观礼台",
+      "camera_angle": "大远景"
+    },
+    {
+      "panel_number": 4,
+      "description": "李玄站在丹鼎峰区域，面对着全场目光和老者的质疑。他保持着淡定的表情，但眼神中闪过一丝思索。",
+      "characters": [
+        {
+          "name": "李玄",
+          "action": "面对质疑",
+          "expression": "淡定+思索",
+          "position": "画面中央"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "旁白",
+          "text": "面对老者的质疑，李玄会如何应对？这场大比，又会有怎样的转折？",
+          "type": "旁白"
+        }
+      ],
+      "background": "丹鼎峰区域，背景是所有人的目光",
+      "camera_angle": "近景特写"
+    },
+    {
+      "panel_number": 5,
+      "description": "大猩猩站在冷月涵身边，一人一兽并排而立，画面充满张力。大猩猩还在好奇地看着四周，而冷月涵的内心已经崩溃。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "站在大猩猩身边",
+          "expression": "内心崩溃",
+          "position": "画面左侧"
+        }
+      ],
+      "dialogues": [],
+      "background": "白玉擂台，一人一兽并立",
+      "camera_angle": "中景"
+    }
+  ]
+}

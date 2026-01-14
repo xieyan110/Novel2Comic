@@ -1,0 +1,106 @@
+{
+  "page_number": 4,
+  "panels": [
+    {
+      "panel_number": 1,
+      "description": "冷月涵自己也愣了一下，感觉药力在体内化开，却并未流向四肢百骸。她清冷的脸上露出疑惑的表情。",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "感受药力",
+          "expression": "疑惑",
+          "position": "画面特写"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "旁白",
+          "text": "然而，预想中的金光并未出现。",
+          "type": "旁白"
+        }
+      ],
+      "background": "白玉擂台",
+      "camera_angle": "近景特写"
+    },
+    {
+      "panel_number": 2,
+      "description": "就在所有人都以为丹药失效了的时候，异变陡生！一道玄奥的传送法阵，毫无征兆地在冷月涵身边的空地上亮起！",
+      "characters": [
+        {
+          "name": "冷月涵",
+          "action": "被突如其来的法阵吓到",
+          "expression": "震惊",
+          "position": "画面左侧"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "人群",
+          "text": "不对！什么情况？！这法阵，怎么有召唤法术的感觉？",
+          "type": "惊呼"
+        }
+      ],
+      "background": "白玉擂台，神秘的传送法阵突然亮起",
+      "camera_angle": "中景"
+    },
+    {
+      "panel_number": 3,
+      "description": "璀璨的光芒冲天而起，空间都为之扭曲。法阵散发出强大的能量波动，吸引了所有人的目光。",
+      "characters": [],
+      "dialogues": [],
+      "background": "传送法阵光芒冲天，空间扭曲",
+      "camera_angle": "仰视大特写"
+    },
+    {
+      "panel_number": 4,
+      "description": "众人惊呼声中，一只巨大的、毛茸茸的拳头从法阵中猛地伸出，按在擂台之上！拳头巨大无比，压迫感十足。",
+      "characters": [],
+      "dialogues": [],
+      "background": "巨大的毛茸茸拳头从法阵中伸出",
+      "camera_angle": "特写"
+    },
+    {
+      "panel_number": 5,
+      "description": "紧接着，一头身高丈许、浑身黑毛如钢针的巨大猩猩，从法阵里一步跨了出来！它体型庞大，肌肉隆起，气势惊人。",
+      "characters": [],
+      "dialogues": [],
+      "background": "巨大的猩猩从法阵中跨出",
+      "camera_angle": "仰视全景"
+    },
+    {
+      "panel_number": 6,
+      "description": "大猩猩仰天发出一声震耳欲聋的咆哮，双拳用力锤击着自己结实的胸膛。声音震得擂台都在颤抖。",
+      "characters": [],
+      "dialogues": [
+        {
+          "speaker": "大猩猩",
+          "text": "吼！！！",
+          "type": "咆哮"
+        }
+      ],
+      "background": "大猩猩仰天咆哮，双拳锤胸",
+      "camera_angle": "仰视特写"
+    },
+    {
+      "panel_number": 7,
+      "description": "全场，再一次陷入了死一般的寂静。所有人都傻了！赵乾和裁判长老们呆呆地看着这一幕，端着的茶杯都忘了放下。擂台下，弟子们张大了嘴，不可思议地看着这一幕。",
+      "characters": [
+        {
+          "name": "赵乾",
+          "action": "呆呆地看着",
+          "expression": "傻眼",
+          "position": "画面左侧"
+        }
+      ],
+      "dialogues": [
+        {
+          "speaker": "弟子们",
+          "text": "大师姐……竟然还有一手召唤法术？！召唤同阶妖兽，这是御兽峰的手段，不愧是大师姐，天赋无敌了！",
+          "type": "震惊"
+        }
+      ],
+      "background": "观众席，所有人都目瞪口呆，有人茶杯都倒了",
+      "camera_angle": "全景"
+    }
+  ]
+}
