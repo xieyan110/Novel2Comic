@@ -17,7 +17,7 @@
 
 **API 代理**
 
-- 推荐用 [uniapi.io](https://uniapi.io)
+- 推荐用 [uniapi.io](https://uniapi.ai/register?aff=LEGx)
 
 **装 Python 依赖**
 
