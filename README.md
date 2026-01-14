@@ -26,6 +26,24 @@
 pip install -r requirements.txt
 ```
 
+创建**comic_service\.env**内容如下（key 直接通过.mcp.json 文件就行）：
+
+```
+# Gemini API 配置
+GEMINI_API_KEY=sk-xxxxxxx
+GEMINI_API_BASE_URL=https://api.uniapi.io
+GEMINI_MODEL=gemini-3-pro-image-preview
+
+# 存储路径
+REFERENCE_IMAGES_PATH=./config/references
+OUTPUT_IMAGES_PATH=./output/pages
+
+# 日志级别
+LOG_LEVEL=INFO
+
+```
+
+
 ### 2. 配置 Claude Code
 
 **API 服务选哪个都行**
