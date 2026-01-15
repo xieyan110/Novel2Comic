@@ -669,19 +669,14 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
             if panel.background:
                 all_scene_names.add(panel.background)
 
-        # 确保所有角色都有参考图
+        # 收集已有的角色参考图（不自动创建）
         character_refs = []
         for char_name in all_character_names:
             char = self.character_manager.get_character_by_name(char_name)
-            if not char:
-                # 自动创建角色参考图
-                logger.warning(f"⚠️  角色 '{char_name}' 没有参考图，自动创建")
-                char = await self.character_manager.create_character(
-                    name=char_name,
-                    description=f"角色 {char_name}",
-                    style=style
-                )
-            character_refs.append(char.reference_image.base64)
+            if char:
+                character_refs.append(char.reference_image.base64)
+            else:
+                logger.info(f"ℹ️  角色 '{char_name}' 没有参考图，跳过（不自动生成）")
 
         # 收集已有的场景参考图（不自动创建）
         scene_refs = []
