@@ -17,7 +17,8 @@
 
 **API 代理**
 
-- 推荐用 [uniapi.io](https://uniapi.ai/register?aff=LEGx)
+- [uniapi.io](https://uniapi.ai/register?aff=LEGx) （8毛一张图）
+- 推荐用 [yunwu.ai](https://yunwu.ai/register?aff=BlZR) （3毛一张图便宜）
 
 **装 Python 依赖**
 
