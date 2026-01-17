@@ -38,7 +38,7 @@ class GeminiImageGenerator:
         self,
         prompt: str,
         image_refs: Optional[List[str]] = None,
-        image_size: str = "4K",
+        image_size: str = "2K",
         aspect_ratio: str = "3:4",
         timeout: int = 120
     ) -> str:
@@ -157,7 +157,7 @@ class GeminiImageGenerator:
         character_name: str,
         description: str,
         style: str = "日漫风格",
-        image_size: str = "4K",
+        image_size: str = "2K",
         aspect_ratio: str = "3:4"
     ) -> str:
         """
@@ -197,7 +197,7 @@ class GeminiImageGenerator:
         scene_name: str,
         description: str,
         style: str = "日漫风格",
-        image_size: str = "4K",
+        image_size: str = "2K",
         aspect_ratio: str = "16:9"
     ) -> str:
         """
@@ -237,7 +237,7 @@ class GeminiImageGenerator:
         prompt: str,
         character_refs: Optional[List[str]] = None,
         scene_refs: Optional[List[str]] = None,
-        image_size: str = "4K",
+        image_size: str = "2K",
         aspect_ratio: str = "3:4"
     ) -> str:
         """
