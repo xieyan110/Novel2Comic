@@ -395,7 +395,7 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
 
         character = await self.character_manager.create_character(
             name=character_name,
-            description=description,
+            description=f"{description}, 生成的人物图片不要添加文字描述和水印",
             visual_features=visual_features,
             style=style
         )
