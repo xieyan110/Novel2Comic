@@ -51,7 +51,8 @@ class CharacterManager:
         name: str,
         description: str,
         visual_features: Optional[Dict] = None,
-        style: str = "日漫风格"
+        style: str = "日漫风格",
+        reference_image: Optional[str] = None
     ) -> Character:
         """
         创建新人物并生成参考图
@@ -61,6 +62,7 @@ class CharacterManager:
             description: 角色描述
             visual_features: 视觉特征（可选）
             style: 漫画风格
+            reference_image: 参考图片的本地路径（可选）
 
         Returns:
             创建的角色对象
@@ -73,7 +75,8 @@ class CharacterManager:
         image_base64 = await self.gemini_client.generate_character_reference(
             character_name=name,
             description=description,
-            style=style
+            style=style,
+            reference_image=reference_image
         )
 
         # 压缩图片 base64（用于 API 调用）

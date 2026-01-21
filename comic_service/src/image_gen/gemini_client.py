@@ -154,13 +154,43 @@ class GeminiImageGenerator:
                 raise ValueError(f"API 返回错误: {error_msg}")
             raise ValueError(f"API 响应格式错误，缺少键: {e}")
 
+    def _load_image_as_base64(self, image_path: str) -> str:
+        """
+        将图片文件加载为 base64 编码
+
+        Args:
+            image_path: 图片文件路径
+
+        Returns:
+            base64 编码的图片（带 data URL 前缀）
+        """
+        image_file = Path(image_path)
+        if not image_file.exists():
+            raise FileNotFoundError(f"图片文件不存在: {image_path}")
+
+        with open(image_file, 'rb') as f:
+            image_data = f.read()
+
+        # 根据文件扩展名确定 MIME 类型
+        mime_type = "image/jpeg"
+        if image_file.suffix.lower() == '.png':
+            mime_type = "image/png"
+        elif image_file.suffix.lower() in ['.jpg', '.jpeg']:
+            mime_type = "image/jpeg"
+        elif image_file.suffix.lower() == '.webp':
+            mime_type = "image/webp"
+
+        base64_data = base64.b64encode(image_data).decode('utf-8')
+        return f"data:{mime_type};base64,{base64_data}"
+
     async def generate_character_reference(
         self,
         character_name: str,
         description: str,
         style: str = "日漫风格",
         image_size: str = "2K",
-        aspect_ratio: str = "3:4"
+        aspect_ratio: str = "3:4",
+        reference_image: Optional[str] = None
     ) -> str:
         """
         生成人物参考图
@@ -171,6 +201,7 @@ class GeminiImageGenerator:
             style: 漫画风格
             image_size: 图像大小
             aspect_ratio: 长宽比
+            reference_image: 参考图片的本地路径（可选）
 
         Returns:
             base64 编码的图片
@@ -187,9 +218,15 @@ class GeminiImageGenerator:
 4. 保持角色一致性，表情自然平静
 """
 
+        # 如果提供了参考图，加载它
+        image_refs = None
+        if reference_image:
+            logger.info(f"使用参考图: {reference_image}")
+            image_refs = [self._load_image_as_base64(reference_image)]
+
         return await self.generate_with_references(
             prompt=prompt,
-            image_refs=None,
+            image_refs=image_refs,
             image_size=image_size,
             aspect_ratio=aspect_ratio
         )
@@ -200,7 +237,8 @@ class GeminiImageGenerator:
         description: str,
         style: str = "日漫风格",
         image_size: str = "2K",
-        aspect_ratio: str = "16:9"
+        aspect_ratio: str = "16:9",
+        reference_image: Optional[str] = None
     ) -> str:
         """
         生成场景参考图
@@ -211,6 +249,7 @@ class GeminiImageGenerator:
             style: 漫画风格
             image_size: 图像大小
             aspect_ratio: 长宽比
+            reference_image: 参考图片的本地路径（可选）
 
         Returns:
             base64 编码的图片
@@ -227,9 +266,15 @@ class GeminiImageGenerator:
 4. 适合作为漫画背景使用
 """
 
+        # 如果提供了参考图，加载它
+        image_refs = None
+        if reference_image:
+            logger.info(f"使用参考图: {reference_image}")
+            image_refs = [self._load_image_as_base64(reference_image)]
+
         return await self.generate_with_references(
             prompt=prompt,
-            image_refs=None,
+            image_refs=image_refs,
             image_size=image_size,
             aspect_ratio=aspect_ratio
         )

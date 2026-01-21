@@ -50,7 +50,8 @@ class SceneManager:
         name: str,
         description: str,
         tags: Optional[List[str]] = None,
-        style: str = "日漫风格"
+        style: str = "日漫风格",
+        reference_image: Optional[str] = None
     ) -> Scene:
         """
         创建新场景并生成参考图
@@ -60,6 +61,7 @@ class SceneManager:
             description: 场景描述
             tags: 场景标签
             style: 漫画风格
+            reference_image: 参考图片的本地路径（可选）
 
         Returns:
             创建的场景对象
@@ -72,7 +74,8 @@ class SceneManager:
         image_base64 = await self.gemini_client.generate_scene_reference(
             scene_name=name,
             description=description,
-            style=style
+            style=style,
+            reference_image=reference_image
         )
 
         # 压缩图片 base64

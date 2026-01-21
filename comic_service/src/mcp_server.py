@@ -183,6 +183,10 @@ class ComicMCPServer:
                                 "type": "string",
                                 "description": "漫画风格",
                                 "default": "日漫风格"
+                            },
+                            "reference_image": {
+                                "type": "string",
+                                "description": "参考图片的本地路径（可选）。如果提供，将使用此图片作为参考来生成角色图"
                             }
                         },
                         "required": ["character_name", "description"]
@@ -211,6 +215,10 @@ class ComicMCPServer:
                                 "type": "string",
                                 "description": "漫画风格",
                                 "default": "日漫风格"
+                            },
+                            "reference_image": {
+                                "type": "string",
+                                "description": "参考图片的本地路径（可选）。如果提供，将使用此图片作为参考来生成场景图"
                             }
                         },
                         "required": ["scene_name", "description"]
@@ -254,6 +262,10 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
                                 "type": "string",
                                 "description": "漫画风格",
                                 "default": "日漫风格"
+                            },
+                            "style_reference_image": {
+                                "type": "string",
+                                "description": "风格参考图片的本地路径（可选）。如果提供，将使用此图片作为风格参考来生成漫画"
                             }
                         },
                         "required": ["json_path"]
@@ -321,6 +333,10 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
                                 "type": "string",
                                 "description": "漫画风格",
                                 "default": "日漫风格"
+                            },
+                            "style_reference_image": {
+                                "type": "string",
+                                "description": "风格参考图片的本地路径（可选）。如果提供，将使用此图片作为风格参考来生成漫画"
                             }
                         },
                         "required": ["json_path"]
@@ -388,16 +404,18 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
         character_name: str,
         description: str,
         visual_features: Optional[Dict] = None,
-        style: str = "日漫风格"
+        style: str = "日漫风格",
+        reference_image: Optional[str] = None
     ) -> list[TextContent]:
         """生成人物参考图"""
         logger.info(f"🎨 生成人物参考图: {character_name}")
 
         character = await self.character_manager.create_character(
             name=character_name,
-            description=f"{description}",
+            description=f"{description}，注意生成的人物参考图需要在左下角写上当前人物的名字，图片中不需要其他的描述。",
             visual_features=visual_features,
-            style=style
+            style=style,
+            reference_image=reference_image
         )
 
         result = {
@@ -419,7 +437,8 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
         scene_name: str,
         description: str,
         tags: Optional[List[str]] = None,
-        style: str = "日漫风格"
+        style: str = "日漫风格",
+        reference_image: Optional[str] = None
     ) -> list[TextContent]:
         """生成场景参考图"""
         logger.info(f"🎨 生成场景参考图: {scene_name}")
@@ -428,7 +447,8 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
             name=scene_name,
             description=description,
             tags=tags,
-            style=style
+            style=style,
+            reference_image=reference_image
         )
 
         result = {
@@ -450,7 +470,8 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
         json_path: str,
         image_size: str = "4K",
         aspect_ratio: str = "3:4",
-        style: str = "日漫风格"
+        style: str = "日漫风格",
+        style_reference_image: Optional[str] = None
     ) -> list[TextContent]:
         """生成漫画图片（核心工具）"""
         try:
@@ -480,7 +501,8 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
                 page=page,
                 image_size=image_size,
                 aspect_ratio=aspect_ratio,
-                style=style
+                style=style,
+                style_reference_image=style_reference_image
             )
 
         except FileNotFoundError as e:
@@ -571,7 +593,8 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
         json_path: str,
         image_size: str = "4K",
         aspect_ratio: str = "3:4",
-        style: str = "日漫风格"
+        style: str = "日漫风格",
+        style_reference_image: Optional[str] = None
     ) -> list[TextContent]:
         """重新生成指定页面"""
         try:
@@ -601,7 +624,8 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
                 page=page,
                 image_size=image_size,
                 aspect_ratio=aspect_ratio,
-                style=style
+                style=style,
+                style_reference_image=style_reference_image
             )
 
             # 添加重新生成的标记
@@ -656,7 +680,8 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
         page: Page,
         image_size: str,
         aspect_ratio: str,
-        style: str
+        style: str,
+        style_reference_image: Optional[str] = None
     ) -> list[TextContent]:
         """生成漫画页面的核心逻辑（被 generate_comic_page 和 regenerate_page 共享）"""
         # 收集所有角色和场景
@@ -687,6 +712,12 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
             else:
                 logger.info(f"ℹ️  场景 '{scene_name}' 没有参考图，跳过（不自动生成）")
 
+        # 处理风格参考图
+        style_refs = []
+        if style_reference_image:
+            logger.info(f"🎨 使用风格参考图: {style_reference_image}")
+            style_refs.append(self.gemini_client._load_image_as_base64(style_reference_image))
+
         # 生成图片（所有分镜合并为一张图）
         all_descriptions = []
         for panel in page.panels:
@@ -712,7 +743,7 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
 
         # 调用 Gemini API 生成图片
         logger.info(f"🎨 调用 Gemini API 生成图片...")
-        all_refs = character_refs + scene_refs
+        all_refs = character_refs + scene_refs + style_refs
 
         image_base64 = await self.gemini_client.generate_with_references(
             prompt=full_description,
