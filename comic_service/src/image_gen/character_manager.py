@@ -76,9 +76,12 @@ class CharacterManager:
             style=style
         )
 
-        # 保存图片
+        # 压缩图片 base64（用于 API 调用）
+        compressed_base64 = self.gemini_client.compress_base64_image(image_base64)
+
+        # 保存图片（会自动压缩）
         image_path = self.storage_dir / f"{character_id}.jpg"
-        self.gemini_client.save_base64_image(image_base64, image_path)
+        self.gemini_client.save_base64_image(image_base64, image_path, compress=True)
 
         # 创建视觉特征
         if visual_features is None:
@@ -94,7 +97,7 @@ class CharacterManager:
             name=name,
             description=description,
             reference_image=ReferenceImage(
-                base64=image_base64,
+                base64=compressed_base64,
                 path=str(image_path),
                 model_used=self.gemini_client.model
             ),
@@ -172,13 +175,16 @@ class CharacterManager:
             description=description
         )
 
-        # 更新图片
+        # 压缩图片 base64
+        compressed_base64 = self.gemini_client.compress_base64_image(image_base64)
+
+        # 更新图片（会自动压缩）
         image_path = self.storage_dir / f"{character_id}.jpg"
-        self.gemini_client.save_base64_image(image_base64, image_path)
+        self.gemini_client.save_base64_image(image_base64, image_path, compress=True)
 
         # 更新角色对象
         character.reference_image = ReferenceImage(
-            base64=image_base64,
+            base64=compressed_base64,
             path=str(image_path),
             model_used=self.gemini_client.model
         )

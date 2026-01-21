@@ -7,9 +7,11 @@ import base64
 import httpx
 import json
 import re
+import io
 from typing import List, Optional, Dict, Any
 from pathlib import Path
 from loguru import logger
+from PIL import Image
 
 
 class GeminiImageGenerator:
@@ -267,17 +269,88 @@ class GeminiImageGenerator:
             aspect_ratio=aspect_ratio
         )
 
-    def save_base64_image(self, base64_data: str, output_path: Path) -> Path:
+    def compress_base64_image(
+        self,
+        base64_data: str,
+        max_width: int = 1024,
+        quality: int = 75
+    ) -> str:
+        """
+        压缩 base64 图片
+
+        Args:
+            base64_data: base64 编码的图片（可能包含 data URL 前缀）
+            max_width: 最大宽度，超过则按比例缩小（默认 1024）
+            quality: JPEG 质量 1-100，默认 75
+
+        Returns:
+            压缩后的 base64 编码图片（带 data URL 前缀）
+        """
+        # 如果包含 data URL 前缀，去除它
+        if base64_data.startswith("data:"):
+            base64_data = base64_data.split(",", 1)[1]
+
+        # 解码图片
+        image_data = base64.b64decode(base64_data)
+        img = Image.open(io.BytesIO(image_data))
+
+        # 转换模式（RGBA -> RGB 如果需要）
+        if img.mode in ('RGBA', 'LA', 'P'):
+            # 创建白色背景
+            background = Image.new('RGB', img.size, (255, 255, 255))
+            if img.mode == 'P':
+                img = img.convert('RGBA')
+            background.paste(img, mask=img.split()[-1] if img.mode == 'RGBA' else None)
+            img = background
+        elif img.mode != 'RGB':
+            img = img.convert('RGB')
+
+        # 按宽度缩放
+        if img.width > max_width:
+            ratio = max_width / img.width
+            new_height = int(img.height * ratio)
+            img = img.resize((max_width, new_height), Image.Resampling.LANCZOS)
+            logger.info(f"图片已缩放: {img.width}x{img.height}")
+
+        # 压缩为 JPEG
+        output = io.BytesIO()
+        img.save(output, format='JPEG', quality=quality, optimize=True)
+        compressed_data = output.getvalue()
+
+        # 计算压缩率
+        original_size = len(image_data)
+        compressed_size = len(compressed_data)
+        ratio = (1 - compressed_size / original_size) * 100
+        logger.info(f"图片压缩: {original_size // 1024}KB -> {compressed_size // 1024}KB (压缩率 {ratio:.1f}%)")
+
+        # 返回带前缀的 base64
+        return f"data:image/jpeg;base64,{base64.b64encode(compressed_data).decode('utf-8')}"
+
+    def save_base64_image(
+        self,
+        base64_data: str,
+        output_path: Path,
+        compress: bool = True,
+        max_width: int = 1024,
+        quality: int = 75
+    ) -> Path:
         """
         保存 base64 图片到文件
 
         Args:
             base64_data: base64 编码的图片（可能包含 data URL 前缀）
             output_path: 输出文件路径
+            compress: 是否压缩图片
+            max_width: 最大宽度，超过则按比例缩小
+            quality: JPEG 质量 1-100
 
         Returns:
             保存的文件路径
         """
+        # 压缩图片
+        if compress:
+            base64_data = self.compress_base64_image(base64_data, max_width=max_width, quality=quality)
+
         # 如果包含 data URL 前缀，去除它
         if base64_data.startswith("data:"):
             base64_data = base64_data.split(",")[1]

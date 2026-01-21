@@ -75,9 +75,12 @@ class SceneManager:
             style=style
         )
 
-        # 保存图片
+        # 压缩图片 base64
+        compressed_base64 = self.gemini_client.compress_base64_image(image_base64)
+
+        # 保存图片（会自动压缩）
         image_path = self.storage_dir / f"{scene_id}.jpg"
-        self.gemini_client.save_base64_image(image_base64, image_path)
+        self.gemini_client.save_base64_image(image_base64, image_path, compress=True)
 
         # 创建场景对象
         scene = Scene(
@@ -85,7 +88,7 @@ class SceneManager:
             name=name,
             description=description,
             reference_image={
-                "base64": image_base64,
+                "base64": compressed_base64,
                 "path": str(image_path),
                 "model_used": self.gemini_client.model
             },
@@ -163,14 +166,17 @@ class SceneManager:
             description=description
         )
 
-        # 更新图片
+        # 压缩图片 base64
+        compressed_base64 = self.gemini_client.compress_base64_image(image_base64)
+
+        # 更新图片（会自动压缩）
         image_path = self.storage_dir / f"{scene_id}.jpg"
-        self.gemini_client.save_base64_image(image_base64, image_path)
+        self.gemini_client.save_base64_image(image_base64, image_path, compress=True)
 
         # 更新场景对象
         from ..models.character import ReferenceImage
         scene.reference_image = ReferenceImage(
-            base64=image_base64,
+            base64=compressed_base64,
             path=str(image_path),
             model_used=self.gemini_client.model
         )
