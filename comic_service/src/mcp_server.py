@@ -602,10 +602,10 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
             aspect_ratio=aspect_ratio
         )
 
-        # 保存图片
+        # 保存图片（漫画页面不压缩）
         output_dir = Path(self.config.get("storage", {}).get("output_images_path", "./output/pages"))
         output_path = output_dir / f"page_{page.page_number:03d}.jpg"
-        self.gemini_client.save_base64_image(image_base64, output_path)
+        self.gemini_client.save_base64_image(image_base64, output_path, compress=False)
 
         result = {
             "success": True,
