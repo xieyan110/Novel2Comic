@@ -166,7 +166,7 @@ class ComicMCPServer:
                             },
                             "description": {
                                 "type": "string",
-                                "description": "角色详细的外貌描述（发色、发型、服装、年龄、体型等）"
+                                "description": "角色详细的外貌描述（发色、发型、服装、年龄、体型等）（如果有参考图片这个时候描述尽量别太多，可以直接说：参考图片来生成角色图）"
                             },
                             "visual_features": {
                                 "type": "object",
@@ -182,11 +182,11 @@ class ComicMCPServer:
                             "style": {
                                 "type": "string",
                                 "description": "漫画风格",
-                                "default": "日漫风格"
+                                "default": "彩漫风格"
                             },
                             "reference_image": {
                                 "type": "string",
-                                "description": "参考图片的本地路径（可选）。如果提供，将使用此图片作为参考来生成角色图"
+                                "description": "参考图片的本地路径（可选）。如果提供，将使用此图片作为参考来生成角色图，如果有参考图片这个时候description尽量别太多"
                             }
                         },
                         "required": ["character_name", "description"]
@@ -214,11 +214,11 @@ class ComicMCPServer:
                             "style": {
                                 "type": "string",
                                 "description": "漫画风格",
-                                "default": "日漫风格"
+                                "default": "彩漫风格"
                             },
                             "reference_image": {
                                 "type": "string",
-                                "description": "参考图片的本地路径（可选）。如果提供，将使用此图片作为参考来生成场景图"
+                                "description": "参考图片的本地路径（可选）。如果提供，将使用此图片作为参考来生成场景图，description 描述就可以说参考图片来生成"
                             }
                         },
                         "required": ["scene_name", "description"]
@@ -261,7 +261,7 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
                             "style": {
                                 "type": "string",
                                 "description": "漫画风格",
-                                "default": "日漫风格"
+                                "default": "彩漫风格"
                             },
                             "style_reference_image": {
                                 "type": "string",
@@ -287,59 +287,6 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
                     inputSchema={
                         "type": "object",
                         "properties": {}
-                    }
-                ),
-                Tool(
-                    name="update_character_reference",
-                    description="更新人物参考图 - 如果对现有角色的参考图不满意，可以重新生成",
-                    inputSchema={
-                        "type": "object",
-                        "properties": {
-                            "character_id": {
-                                "type": "string",
-                                "description": "角色 ID（使用 list_characters 查看）"
-                            },
-                            "new_description": {
-                                "type": "string",
-                                "description": "新的外貌描述"
-                            }
-                        },
-                        "required": ["character_id", "new_description"]
-                    }
-                ),
-                Tool(
-                    name="regenerate_page",
-                    description="重新生成指定页面 - 通过 JSON 文件路径重新生成漫画页面（会覆盖原文件）",
-                    inputSchema={
-                        "type": "object",
-                        "properties": {
-                            "json_path": {
-                                "type": "string",
-                                "description": "JSON 文件路径（相对于项目根目录的路径，如 output/page_001.json）"
-                            },
-                            "image_size": {
-                                "type": "string",
-                                "description": "图像大小",
-                                "enum": ["1K", "2K", "4K"],
-                                "default": "4K"
-                            },
-                            "aspect_ratio": {
-                                "type": "string",
-                                "description": "长宽比",
-                                "enum": ["1:1", "16:9", "9:16", "3:4", "4:3", "3:2", "2:3", "21:9"],
-                                "default": "3:4"
-                            },
-                            "style": {
-                                "type": "string",
-                                "description": "漫画风格",
-                                "default": "日漫风格"
-                            },
-                            "style_reference_image": {
-                                "type": "string",
-                                "description": "风格参考图片的本地路径（可选）。如果提供，将使用此图片作为风格参考来生成漫画"
-                            }
-                        },
-                        "required": ["json_path"]
                     }
                 ),
             ]
@@ -374,12 +321,6 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
                 elif name == "list_scenes":
                     return await self._list_scenes()
 
-                elif name == "update_character_reference":
-                    return await self._update_character_reference(**arguments)
-
-                elif name == "regenerate_page":
-                    return await self._regenerate_page(**arguments)
-
                 else:
                     return [TextContent(type="text", text=f"未知工具: {name}")]
 
@@ -404,7 +345,7 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
         character_name: str,
         description: str,
         visual_features: Optional[Dict] = None,
-        style: str = "日漫风格",
+        style: str = "彩漫风格",
         reference_image: Optional[str] = None
     ) -> list[TextContent]:
         """生成人物参考图"""
@@ -437,7 +378,7 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
         scene_name: str,
         description: str,
         tags: Optional[List[str]] = None,
-        style: str = "日漫风格",
+        style: str = "彩漫风格",
         reference_image: Optional[str] = None
     ) -> list[TextContent]:
         """生成场景参考图"""
@@ -470,7 +411,7 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
         json_path: str,
         image_size: str = "4K",
         aspect_ratio: str = "3:4",
-        style: str = "日漫风格",
+        style: str = "彩漫风格",
         style_reference_image: Optional[str] = None
     ) -> list[TextContent]:
         """生成漫画图片（核心工具）"""
@@ -555,97 +496,6 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
             type="text",
             text=json.dumps(result, ensure_ascii=False, indent=2)
         )]
-
-    async def _update_character_reference(
-        self,
-        character_id: str,
-        new_description: str
-    ) -> list[TextContent]:
-        """更新人物参考图"""
-        character = await self.character_manager.update_character_reference(
-            character_id=character_id,
-            new_description=new_description
-        )
-
-        if not character:
-            return [TextContent(
-                type="text",
-                text=json.dumps({
-                    "success": False,
-                    "error": f"角色不存在: {character_id}"
-                }, ensure_ascii=False)
-            )]
-
-        result = {
-            "success": True,
-            "character_id": character.character_id,
-            "name": character.name,
-            "message": f"参考图已更新: {character.reference_image.path}"
-        }
-
-        return [TextContent(
-            type="text",
-            text=json.dumps(result, ensure_ascii=False, indent=2)
-        )]
-
-    async def _regenerate_page(
-        self,
-        json_path: str,
-        image_size: str = "4K",
-        aspect_ratio: str = "3:4",
-        style: str = "日漫风格",
-        style_reference_image: Optional[str] = None
-    ) -> list[TextContent]:
-        """重新生成指定页面"""
-        try:
-            # 从文件读取 JSON
-            json_file = Path(json_path)
-            if not json_file.exists():
-                # 尝试相对于项目根目录的路径
-                project_root = Path(__file__).parent.parent
-                json_file = project_root / json_path
-
-            if not json_file.exists():
-                raise FileNotFoundError(f"找不到 JSON 文件: {json_path}")
-
-            logger.info(f"📂 从文件读取 JSON: {json_file}")
-
-            with open(json_file, 'r', encoding='utf-8') as f:
-                page_json = f.read()
-
-            # 尝试修复并解析 JSON
-            page_data = self._fix_and_parse_json(page_json)
-            page = Page(**page_data)
-
-            logger.info(f"🔄 重新生成第 {page.page_number} 页，共 {len(page.panels)} 个分镜")
-
-            # 调用生成页面的逻辑
-            result = await self._generate_comic_page_logic(
-                page=page,
-                image_size=image_size,
-                aspect_ratio=aspect_ratio,
-                style=style,
-                style_reference_image=style_reference_image
-            )
-
-            # 添加重新生成的标记
-            result_dict = json.loads(result[0].text)
-            result_dict["regenerated"] = True
-            result_dict["message"] = f"✅ 第 {page.page_number} 页已重新生成（覆盖原文件）！"
-
-            return [TextContent(
-                type="text",
-                text=json.dumps(result_dict, ensure_ascii=False, indent=2)
-            )]
-
-        except FileNotFoundError as e:
-            raise ValueError(str(e))
-        except ValueError as e:
-            # JSON 解析或修复失败
-            raise e
-        except Exception as e:
-            logger.error(f"重新生成失败: {e}")
-            raise
 
     def _fix_and_parse_json(self, page_json: str) -> dict:
         """尝试修复并解析 JSON，返回解析后的数据"""
