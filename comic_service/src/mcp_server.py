@@ -166,7 +166,7 @@ class ComicMCPServer:
                             },
                             "description": {
                                 "type": "string",
-                                "description": "角色详细的外貌描述（发色、发型、服装、年龄、体型等）（如果有参考图片这个时候描述尽量别太多，可以直接说：参考图片来生成角色图）"
+                                "description": "角色详细的外貌描述（发色、发型、服装、年龄、体型等），角色尽可能是站立状态，如果有参考图需要加以下描述（参考图片中的人物生成角色 或者 参考图片中的画风风格生成角色）"
                             },
                             "visual_features": {
                                 "type": "object",
@@ -186,7 +186,7 @@ class ComicMCPServer:
                             },
                             "reference_image": {
                                 "type": "string",
-                                "description": "参考图片的本地路径（可选）。如果提供，将使用此图片作为参考来生成角色图，如果有参考图片这个时候description尽量别太多"
+                                "description": "参考图片的本地路径（可选）。有两种使用方式：1) 参考图片中的人物时，description的description可以简单描述如'使用图片中的人物'；2) 参考图片的画风风格时，description的description 需要清晰描述人物特征"
                             }
                         },
                         "required": ["character_name", "description"]
@@ -218,7 +218,7 @@ class ComicMCPServer:
                             },
                             "reference_image": {
                                 "type": "string",
-                                "description": "参考图片的本地路径（可选）。如果提供，将使用此图片作为参考来生成场景图，description 描述就可以说参考图片来生成"
+                                "description": "参考图片的本地路径（可选）。有两种使用方式：1) 参考图片中的场景时，description的description 可以简单描述如'使用图片中的场景'；2) 参考图片的画风风格时，description的description需要清晰描述场景特征"
                             }
                         },
                         "required": ["scene_name", "description"]
@@ -265,7 +265,7 @@ JSON 文件示例：{"page_number": 1, "panels": [{"panel_number": 1, "descripti
                             },
                             "style_reference_image": {
                                 "type": "string",
-                                "description": "风格参考图片的本地路径（可选）。如果提供，将使用此图片作为风格参考来生成漫画"
+                                "description": "风格参考图片的本地路径（可选）。如果有漫画参考图，请使用图片中的风格"
                             }
                         },
                         "required": ["json_path"]
